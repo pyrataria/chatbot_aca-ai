@@ -17,6 +17,7 @@ from nltk.corpus import stopwords
 import spacy
 import nltk
 from spacy.cli import download as spacy_download
+from spacy.util import get_installed_models
 
 
 nltk.download('punkt', quiet=True)
@@ -63,12 +64,15 @@ with col_form:
 
 MODEL_NAME = "pt_core_news_sm"
 
-try:
-    spacy.util.get_package_path(MODEL_NAME)
-except (OSError, IOError):
+if MODEL_NAME not in get_installed_models():
     spacy_download(MODEL_NAME)
 
-_nlp = spacy.load(MODEL_NAME)
+try:
+    _nlp = spacy.load(MODEL_NAME)
+except OSError as e:
+    raise RuntimeError(
+        f"Não foi possível carregar o modelo {MODEL_NAME}: {e}"
+    )
 
 def preprocessar_texto(texto: str) -> list[str]:
     nlp = _nlp
