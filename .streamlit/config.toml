@@ -1,0 +1,6 @@
+[theme]
+primaryColor = "#581845"       # roxo escuro
+backgroundColor = "#F3E5F5"    # lilás bem clarinho
+secondaryBackgroundColor = "#900C3F"  # vinho
+textColor = "#3E1F47"          # tom de marrom-avermelhado
+font = "sans serif"

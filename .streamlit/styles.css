@@ -1,0 +1,66 @@
+/* Ajusta a posição e aparência do formulário de chat */
+div[data-testid="stForm"] {
+    position: fixed;
+    bottom: 1rem;            /* distância da base */
+    width: calc(100% - 22rem);/* 100% da largura da viewport menos sidebar + margem */
+    max-width: 700px;        /* opcional: limite o tamanho máximo */
+    background-color: #900C3F !important;
+    border: 1px solid #ddd;
+    border-radius: 16px !important;
+    z-index: 100;            /* garante que fique acima de outros elementos */
+    transition: width 0.3s, right 0.3s;  /* animação suave ao abrir/fechar sidebar */
+}
+
+.centraliza-form {
+        display: flex;
+        justify-content: center; /* alinha horizontalmente */
+        margin-top: 50px;         /* ajuste o espaçamento superior à vontade */
+    }
+
+/* Estilo do campo input dentro do form */
+div[data-testid="stForm"] input[type="text"] {
+    background-color: #F3E5F5 !important;
+    border-radius: 8px !important;
+    width: 100% !important;
+}
+
+/* Cores e fontes da sidebar */
+.stSidebar,
+.stSidebar span,
+.stSidebar div,
+.stSidebar p,
+.stSidebar h1,
+.stSidebar h2,
+.stSidebar h3,
+.stSidebar a {
+    color: #F3E5F5 !important;
+}
+
+/* Mensagem do usuário (alinhada à direita) */
+.user-message {
+    text-align: right;
+    background-color: #E0BCDD;
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 15px;
+    margin: 5px 0 0px 0;
+    max-width: 60%;
+    float: right;
+    clear: both;
+}
+
+/* Mensagem do bot (alinhada à esquerda) */
+.bot-message {
+    text-align: left;
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 15px;
+    margin: 5px 0 0px 0;
+    max-width: 60%;
+    clear: both;
+}
+
+/* Faz o formulário e todos os text_inputs ocuparem 100% do container pai */
+.stForm, .stTextInput>div {
+    width: 100% !important;
+}
