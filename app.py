@@ -16,7 +16,6 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 import spacy
 import nltk
-import pt_core_news_sm
 
 
 nltk.download('punkt', quiet=True)
