@@ -16,6 +16,7 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 import spacy
 import nltk
+from spacy.cli import download as spacy_download
 
 
 nltk.download('punkt', quiet=True)
@@ -60,7 +61,14 @@ with col_form:
         with col2:
             enviar = st.form_submit_button("Enviar")
 
-_nlp = spacy.load("pt_core_news_sm")
+MODEL_NAME = "pt_core_news_sm"
+
+try:
+    spacy.util.get_package_path(MODEL_NAME)
+except (OSError, IOError):
+    spacy_download(MODEL_NAME)
+
+_nlp = spacy.load(MODEL_NAME)
 
 def preprocessar_texto(texto: str) -> list[str]:
     nlp = _nlp
