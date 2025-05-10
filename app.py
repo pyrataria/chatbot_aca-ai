@@ -61,7 +61,7 @@ with col_form:
         with col2:
             enviar = st.form_submit_button("Enviar")
 
-_nlp = pt_core_news_sm.load()
+_nlp = spacy.load("pt_core_news_sm")
 
 def preprocessar_texto(texto: str) -> list[str]:
     nlp = _nlp
