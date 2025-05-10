@@ -6,5 +6,9 @@ textColor = "#3E1F47"          # tom de marrom-avermelhado
 font = "sans serif"
 
 [server]
-# desliga o watchdog de arquivos
-fileWatcherType = "none"
+# ativa o watchdog “poll” (mais leve que o padrão “inotify”)
+fileWatcherType = "poll"
+
+[watch]
+# padrões de arquivos/pastas que não serão monitorados
+ignorePatterns = ["node_modules/*", ".git/*", ".venv/*", "data/*"]
