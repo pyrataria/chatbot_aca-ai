@@ -1,2 +1,0 @@
-[run]
-setup_commands = ["bash setup.sh"]
